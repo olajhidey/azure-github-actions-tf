@@ -41,7 +41,7 @@ resource "azurerm_linux_function_app" "functionapp-weu" {
 }
 
 resource "azurerm_storage_account" "fun-weu-storage" {
-  name = "linuxfunctionappstorageweu"
+  name = "linuxfuncappstrgeweu001"
   resource_group_name = azurerm_resource_group.github-actions-tf.name
   location = azurerm_resource_group.github-actions-tf.location
   account_tier = "Standard"
