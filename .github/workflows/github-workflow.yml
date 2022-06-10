@@ -1,5 +1,6 @@
 name: "Terraform-github"
 on:
+  workflow_dispatch:
   push:
     branches:
       - "master"
