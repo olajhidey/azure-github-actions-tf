@@ -32,7 +32,7 @@ resource "azurerm_resource_group" "github-actions-tf" {
 
 resource "azurerm_linux_function_app" "functionapp-weu" {
   name = "linuxfunctionapp-weu"
-  resource_group_name = azurerm_resource_group.github-actions-tf
+  resource_group_name = azurerm_resource_group.github-actions-tf.name
   location = azurerm_resource_group.github-actions-tf.location
   storage_account_name = azurerm_storage_account.fun-weu-storage.name
   service_plan_id = azurerm_service_plan.fun-weu-asp.id
