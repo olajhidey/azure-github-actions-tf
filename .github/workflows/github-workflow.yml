@@ -4,18 +4,17 @@ on:
   push:
     branches:
       - "master"
+env:
+  TF_VAR_CLIENT: ${{ secrets.ARM_CLIENT_ID }}
+  TF_VAR_SUB_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+  TF_VAR_TENANT: ${{ secrets.ARM_TENANT_ID }}
+  TF_VAR_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+  ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
 
 jobs:
   create-resource:
     runs-on: ubuntu-latest
-
-    env:
-      TF_VAR_CLIENT: ${{ secrets.ARM_CLIENT_ID }}
-      TF_VAR_SUB_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-      TF_VAR_TENANT: ${{ secrets.ARM_TENANT_ID }}
-      TF_VAR_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-      ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
-
+    
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
@@ -47,6 +46,11 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v3
+
+      - name: Log in with Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v2
