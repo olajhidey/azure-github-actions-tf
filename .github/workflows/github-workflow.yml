@@ -36,8 +36,5 @@ jobs:
       - name: Initialize terraform
         run: terraform init
 
-      - name: Run terraform plan
-        run: terraform plan
-
       - name: Apply the changes made
         run: terraform apply
