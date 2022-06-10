@@ -15,12 +15,10 @@ jobs:
 
       - name: Export environment Variables
         run: |
-          vi ~/.bash_profile
           export ARM_CLIENT_ID=${{ secrets.ARM_CLIENT_ID }}
           export ARM_CLIENT_SECRET=${{ secrets.ARM_CLIENT_SECRET }}
           export ARM_SUBSCRIPTION_ID=${{ secrets.ARM_SUBSCRIPTION_ID }}
           export ARM_TENANT_ID=${{ secrets.ARM_TENANT_ID }}
-          source ~/.bash_profile
         shell: bash
 
       - name: Log in with Azure
