@@ -29,11 +29,12 @@ jobs:
         with:
           terraform_version: 1.1.7
 
+      - name: Initialize terraform
+        run: terraform init
+
       - name: Terraform plan
         run: terraform plan
 
-      - name: Initialize terraform
-        run: terraform init
 
       - name: Apply the changes made
         run: terraform apply --auto-approve
