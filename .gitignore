@@ -1,0 +1,4 @@
+.bashrc
+.env
+terraform.*
+.terraform.*
