@@ -17,6 +17,11 @@ jobs:
         with:
           creds: "${{ secrets.AZURE_CREDENTIALS }}"
 
+      - name: Azure CLI install
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.30.0
+
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v2
         with:
